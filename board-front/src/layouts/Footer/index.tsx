@@ -13,20 +13,20 @@ export default function Footer() {
             <div className='icon-box'>
               <div className='icon logo-light-icon'></div>
             </div>
-            <div className='footer-logo-text'></div>
+            <div className='footer-logo-text'>{'Jin\'s Board'}</div>
           </div>
           <div className='footer-link-box'>
-            <div className='footer-email-link'></div>
+            <div className='footer-email-link'>{'jinsheo107@gamil.com'}</div>
             <div className='icon-button'>
               <div className='icon insta-icon'></div>
             </div>
             <div className='icon-button'>
-              <div className='icon naver-icon'></div>
+              <div className='icon naver-blog-icon'></div>
             </div>
           </div>
         </div>
         <div className='footer-bottom'>
-          <div className='footer-copyright'></div>
+          <div className='footer-copyright'>{'Copyring @ 2025 Jinsheo107. All Rights Reserved.'}</div>
         </div>
       </div>
     </div>
