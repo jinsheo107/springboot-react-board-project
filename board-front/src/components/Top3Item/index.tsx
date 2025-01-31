@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import defaultProfileImage from 'assets/image/person.jpg'
+import defaultProfileImage from 'assets/image/person.png'
 import { BaordListItem } from 'types/interface';
 import { useNavigate } from 'react-router-dom';
 

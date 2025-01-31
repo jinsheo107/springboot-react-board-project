@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { BaordListItem } from 'types/interface';
 import { useNavigate } from 'react-router-dom';
-import defaultProfileImage from 'assets/image/person.jpg';
+import defaultProfileImage from 'assets/image/person.png';
 
 interface Props {
   boardListItem: BaordListItem
