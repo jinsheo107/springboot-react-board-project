@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 import { CommentListItem } from 'types/interface'
-import defaultProfileImage from 'assets/image/person.jpg'
+import defaultProfileImage from 'assets/image/person.png'
 
 interface Props {
   commentListItem: CommentListItem;

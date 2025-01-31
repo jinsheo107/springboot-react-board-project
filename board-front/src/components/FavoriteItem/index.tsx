@@ -1,6 +1,6 @@
 import React from 'react'
 import { FavoriteListItem } from 'types/interface';
-import defaultProfileImage from 'assets/image/person.jpg';
+import defaultProfileImage from 'assets/image/person.png';
 import './style.css';
 
 interface Props {
