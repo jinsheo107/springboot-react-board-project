@@ -39,7 +39,7 @@ function App() {
           <Route path={BOARD_UPDATE_PATH(':boardNo')} element={<BoardUpdate />} />
         </Route>
 
-        // 404 NOT FOUND
+        {/* 404 NOT FOUND */}
         <Route path='*' element={<h1>404 NOT FOUND</h1>} />
       </Route>
     </Routes>

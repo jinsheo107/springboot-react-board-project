@@ -3,6 +3,6 @@ import './style.css';
 
 export default function Search() {
   return (
-    <div>index</div>
+    <div>검색화면</div>
   )
 }
