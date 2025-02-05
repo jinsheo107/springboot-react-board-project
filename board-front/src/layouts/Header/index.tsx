@@ -7,7 +7,7 @@ export default function Header() {
 
   const navigate = useNavigate();
 
-  //& logo 클릭 시 이동 이벤트
+  //& event: logo 클릭 시 이동 이벤트
   const onLogoClickHandler = () => {
     navigate(MAIN_PATH());
   }
@@ -88,7 +88,9 @@ export default function Header() {
         </div>
       </div>
     );
-  }
+  };
+
+  // component: 
 
   return (
     <div id='header'>
