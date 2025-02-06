@@ -7,33 +7,33 @@ export default function Header() {
 
   const navigate = useNavigate();
 
-  //& event: logo 클릭 시 이동 이벤트
+  // event: logo 클릭 시 이동 이벤트
   const onLogoClickHandler = () => {
     navigate(MAIN_PATH());
   }
 
-  // 검색 버튼 component
+  // component: 검색버튼
   // 's'earchButton 소문자 사용 시 오류 발생
   // => 첫 글자가 대문자 => 사용자 정의 컴포넌트로 인식 => React Component로 인식
   // => 첫 글자가 소문자 => 기본 HTML 태그로 인식 => HTML 태그로 인식
   const SearchButton = () => {
 
-    //~ state: 검색 버튼 상태
+    // state: 검색 버튼 상태
     const [status, setStatus] = useState<boolean>(false);
-    //~ state: 검색어 상태
+    // state: 검색어 상태
     const [word, setWord] = useState<string>('');
-    //~ state: 검색어 버튼 요소 참조 상태
+    // state: 검색어 버튼 요소 참조 상태
     const searchButtonRef = useRef<HTMLDivElement | null>(null);
-    //~ state: 검색어 path variable 상태
+    // state: 검색어 path variable 상태
     const { searchWord } = useParams();
 
-    //& event: 검색어 변경 이벤트
+    // event: 검색어 변경 이벤트
     const onSearchWordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setWord(value);
     }
 
-    //& event: 검색 아이콘 클릭 이벤트
+    // event: 검색 아이콘 클릭 이벤트
     const onSearchButtonClickHandler = () => {
       if (!status) {
         setStatus(!status);
@@ -45,7 +45,7 @@ export default function Header() {
       }
     }
 
-    //& event: 검색창에서 enter시 이벤트
+    // event: 검색창에서 enter시 이벤트
     const onSearchEnterKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter") {
         if (!status) {
@@ -62,7 +62,7 @@ export default function Header() {
       }
     }
 
-    //* effect: 검색어 path variable 변경 될 때마다 실행
+    // effect: 검색어 path variable 변경 될 때마다 실행
     useEffect(() => {
       if (searchWord) {
         setWord(searchWord);
@@ -72,13 +72,13 @@ export default function Header() {
 
 
     if (!status)
-      // 클릭 false
+      // render: 클릭 false
       return (
         <div className='icon-button' onClick={onSearchButtonClickHandler}>
           <div className='icon search-light-icon'></div>
         </div>
       );
-    // 클릭 true
+    // render: 클릭 true
     return (
       <div className='header-search-input-box'>
         <input className='header-search-input' type="text" placeholder='검색어를 입력해주세요.'
@@ -90,8 +90,15 @@ export default function Header() {
     );
   };
 
-  // component: 
+  // component: 로그인 / 마이페이지 버튼
+  const LoginMyPageButton = () => {
+    return (
+      // render: 로그인 버튼
+      <div className='black-button'>{'Login'}</div>
+    );
+  }
 
+  // render: 헤더 레이아웃
   return (
     <div id='header'>
       <div className='header-container'>
@@ -103,6 +110,7 @@ export default function Header() {
         </div>
         <div className='header-right-box'>
           <SearchButton />
+          <LoginMyPageButton />
         </div>
       </div>
     </div >
