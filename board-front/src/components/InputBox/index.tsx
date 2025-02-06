@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, forwardRef, SetStateAction } from 'react';
+import React, { ChangeEvent, Dispatch, forwardRef, SetStateAction, KeyboardEvent } from 'react';
 import './style.css';
 
 interface Props {
@@ -11,14 +11,18 @@ interface Props {
 
   icon?: string;
   onButtonClick?: () => void;
+
+  message?: string;
+
+  onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 // component: Input Box 컴포넌트
 const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
 
   // state
-  const { label, type, error, placeholder, value, icon } = props;
-  const { setValue, onButtonClick } = props;
+  const { label, type, error, placeholder, value, icon, message } = props;
+  const { setValue, onButtonClick, onKeyUp } = props;
 
   // evnet: input 값 변경 event
   const onInputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -26,11 +30,18 @@ const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
     setValue(value);
   }
 
+  // event: 
+  const onKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (!onKeyUp) return;
+    onKeyUp(event);
+  }
+
   return (
     <div className='inputbox'>
       <div className='inputbox-label'>{label}</div>
       <div className={error ? 'inputbox-container-error' : 'inputbox-container'}>
-        <input className='input' type={type} placeholder={placeholder} value={value} onChange={onInputChangeHandler} />
+        <input ref={ref} className='input' type={type} placeholder={placeholder} value={value}
+          onChange={onInputChangeHandler} onKeyUp={onKeyUp} />
         {onButtonClick !== undefined && (
           <div className='icon-button'>
             {icon !== undefined && (
@@ -39,7 +50,8 @@ const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
           </div>
         )}
       </div>
-      <div className='inputbox-message'>{'비밀번호는 8자 이상 입력해주세요.'}</div>
+      {message !== undefined && <div className='inputbox-message'>{message}</div>
+      }
     </div>
   );
 });
